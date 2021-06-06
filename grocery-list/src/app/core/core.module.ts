@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from '../material/material.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MaterialModule } from '../material/material.module';
   ],
   imports: [
     MaterialModule,
+    RouterModule,
   ]
 })
 export class CoreModule { }

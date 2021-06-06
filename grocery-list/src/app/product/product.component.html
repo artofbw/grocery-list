@@ -1,0 +1,61 @@
+<mat-grid-list cols="1" rowHeight="5:1">
+  <table mat-table [dataSource]="products" class="mat-elevation-z8">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nazwa </th>
+      <td mat-cell *matCellDef="let product"> {{product.name}} </td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Cena (w PLN) </th>
+      <td mat-cell *matCellDef="let product"> {{product.price}} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let product">
+        <button mat-icon-button (click)="onSelect(product)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-grid-list>
+
+
+<div *ngIf="selectedProduct">
+  <h2>{{selectedProduct.name | uppercase}} Details</h2>
+  <div>
+    <span>id: </span>{{selectedProduct.id}}</div>
+  <div>
+    <label for="product-name">Nazwa produktu: </label>
+    <input id="product-name" [(ngModel)]="selectedProduct.name" placeholder="nazwa">
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!--<mat-list>-->
+<!--  <mat-list-item *ngFor="let message of messages">-->
+<!--    <mat-icon matListIcon>folder</mat-icon>-->
+<!--    <h3 matLine> {{message.from}} </h3>-->
+<!--    <p matLine>-->
+<!--      <span> {{message.subject}} </span>-->
+<!--      <span class="demo-2"> &#45;&#45; {{message.content}} </span>-->
+<!--    </p>-->
+<!--  </mat-list-item>-->
+<!--</mat-list>-->
