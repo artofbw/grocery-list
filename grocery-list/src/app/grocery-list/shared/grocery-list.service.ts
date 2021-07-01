@@ -95,21 +95,18 @@ export class GroceryListService {
     return products.findIndex(pr => pr.name === product.name);
   }
 
-  addProductToGroceryList(product: ProductInterface, groceryList: GroceryListInterface): ProductInterface {
+  addProductToGroceryList(product: any, groceryList: GroceryListInterface): ProductInterface {
     const products = this.getProductsByGroceryList(groceryList);
 
     if (this.checkIfProductExistsInProducts(product, products) !== -1) {
       products.forEach((pr) => {
         if (pr.name === product.name) {
-          try {
-            pr.amount += 1;
-          } catch (e) {
-            pr.amount = 1;
-          }
+          pr.amount += 1;
         }
       });
       localStorage.setItem(this.storageGroceryListProductsPrefix + groceryList.id, JSON.stringify(products));
     } else {
+      product.amount = 1;
       products.push(product);
       localStorage.setItem(this.storageGroceryListProductsPrefix + groceryList.id, JSON.stringify(products));
     }
