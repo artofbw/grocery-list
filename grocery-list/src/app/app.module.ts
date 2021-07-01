@@ -7,19 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { MaterialModule } from './material/material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { GroceryListComponent } from './grocery-list/grocery-list.component';
-import { ProductComponent } from './product/product.component';
-import { FormsModule } from '@angular/forms';
-import {MatListModule} from "@angular/material/list";
-import {MatIconModule} from "@angular/material/icon";
-import {MatTableModule} from "@angular/material/table";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GroceryListModule } from './grocery-list/grocery-list.module';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    GroceryListComponent,
-    ProductComponent,
   ],
   imports: [
     CoreModule,
@@ -28,9 +23,9 @@ import {MatTableModule} from "@angular/material/table";
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    MatListModule,
-    MatIconModule,
-    MatTableModule,
+    GroceryListModule,
+    ProductModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

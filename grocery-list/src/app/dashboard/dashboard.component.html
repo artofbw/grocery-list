@@ -1,1 +1,29 @@
-<p>dashboard works!</p>
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <mat-list>
+      <mat-list-item *ngFor="let groceryList of groceryLists; let i = index" [attr.data-index]="i">
+        <h3 matLine>{{ i + 1 }}. {{groceryList.name}}</h3>
+        <a routerLink="/grocery-list-detail/{{groceryList.id}}" mat-icon-button>
+          <mat-icon>edit</mat-icon>
+        </a>
+        <a mat-icon-button>
+          <mat-icon matListIcon (click)="deleteGroceryList(groceryList.id)">delete</mat-icon>
+        </a>
+      </mat-list-item>
+    </mat-list>
+
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+
+    <form class="example-form" [formGroup]="groceryListForm" (ngSubmit)="addGroceryList(groceryListForm.value)">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nowa lista zakupów</mat-label>
+        <input matInput formControlName="name" [ngModel]="groceryList.name" placeholder="Nazwa" value="Moja nowa lista" required/>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" class="save-btn">dodaj</button>
+    </form>
+
+  </mat-grid-tile>
+</mat-grid-list>

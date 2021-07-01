@@ -1,3 +1,12 @@
+table {
+  width: 50%;
+  margin: 15px auto;
+}
+
+section {
+  margin: 10px;
+}
+
 .example-form {
   min-width: 150px;
   max-width: 500px;

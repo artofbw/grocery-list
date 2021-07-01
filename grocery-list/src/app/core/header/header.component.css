@@ -11,8 +11,22 @@ header {
   font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   text-transform: uppercase;
   letter-spacing: 3px;
+  text-decoration: none;
 }
 
 .button-text:hover {
   background: rgba(255, 255, 255, 0.15);
+}
+
+.inline-header {
+  display: flex;
+}
+
+.margin-left-right {
+  margin: 0 20px;
+}
+
+.divider {
+  color: #fff;
+  margin: 0 20px;
 }

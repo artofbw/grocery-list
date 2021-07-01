@@ -1,6 +1,13 @@
 <header>
-<!--  <button mat-button [matMenuTriggerFor]="afterMenu" class="button-text">Produkty</button>-->
-<!--  <mat-menu #afterMenu="matMenu" xPosition="after">-->
-    <a mat-menu-item routerLink="/product" routerLinkActive="active">Produkty</a>
-<!--  </mat-menu>-->
+  <div class="inline-header">
+    <span>
+    <a class="button-text" mat-menu-item routerLink="/" routerLinkActive="active">Lista zakupów</a>
+    </span>
+
+    <span class="divider"> | </span>
+
+    <span>
+      <a class="button-text" mat-menu-item routerLink="/product" routerLinkActive="active">Produkty</a>
+    </span>
+  </div>
 </header>

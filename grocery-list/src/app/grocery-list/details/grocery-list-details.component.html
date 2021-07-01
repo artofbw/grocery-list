@@ -1,0 +1,30 @@
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+
+    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let groceryProduct of groceryListProducts" cdkDrag>
+        <p>{{ groceryProduct.name }}</p>
+        <h2 class="margin-left" *ngIf="groceryProduct.amount">x {{groceryProduct.amount}}</h2>
+        <h2 class="margin-left" *ngIf="!groceryProduct.amount">x 1</h2>
+        <mat-icon class="margin-left icon-size" (click)="deleteProductFromGroceryList(groceryProduct)">delete</mat-icon>
+      </div>
+
+      <h2 class="text-center">Cena całkowita: {{ totalPrice }} PLN</h2>
+
+    </div>
+
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-list>
+      <h2>Dodaj do listy zakupów</h2>
+      <mat-list-item *ngFor="let product of products">
+        <button mat-icon-button (click)="addProductToGroceryList(product)">
+          <mat-icon>add</mat-icon>
+        </button>
+        <h3 matLine> {{product.name}} </h3>
+        <p matLine class="demo-2"> {{product.price}} PLN</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-grid-tile>
+</mat-grid-list>
